@@ -126,41 +126,176 @@ const heroes = {
 };
 
 function pickHero(code) {
-  const clean = code.toUpperCase().replace(/[^ABCD]/g, "");
-  const score = { A: 0, B: 0, C: 0, D: 0 };
-  [...clean].forEach((letter) => score[letter]++);
+  const clean = code.toUpperCase().replace(/[^ABCD]/g, "").slice(0, 4);
 
   if (clean.length === 0) return null;
 
+  // Специальные коды для презентации.
+  // Они позволяют заранее проверить и красиво показать конкретные примеры.
   const exact = {
+    AAAA: "FUTURE_PREDICTOR",
+    AAAB: "DATA_HUNTER",
+    AAAC: "AI_ARCHITECT",
+    AAAD: "DIGITAL_STRATEGIST",
+
+    AABB: "INFRA_GUARDIAN",
+    ABAB: "SYSTEM_ARCHITECT",
+    ABBA: "SYSTEM_ARCHITECT",
+
     AACA: "AI_ARCHITECT",
-    AAAC: "DATA_HUNTER",
-    ACCC: "PRODUCT_BUILDER",
-    BBBA: "SYSTEM_ARCHITECT",
-    DDDD: "DIGITAL_STRATEGIST",
-    AAAA: "RESEARCHER",
-    CCCA: "WORLD_ARCHITECT",
+    ABCA: "AI_ARCHITECT",
+
     BBBB: "INFRA_GUARDIAN",
-    AABD: "FUTURE_PREDICTOR",
+    BBBA: "SYSTEM_ARCHITECT",
+    BBBC: "SYSTEM_ARCHITECT",
+    BBBD: "INFRA_GUARDIAN",
+
+    CCCC: "WORLD_ARCHITECT",
+    CCCA: "PRODUCT_BUILDER",
+    CCCB: "WORLD_ARCHITECT",
+    CCCD: "PRODUCT_BUILDER",
+
+    CCAD: "PRODUCT_MASTER",
+
+    DDDD: "DIGITAL_STRATEGIST",
+    DDDA: "DIGITAL_STRATEGIST",
+
+    DDCD: "PRODUCT_MASTER",
     DCCD: "PRODUCT_MASTER",
   };
 
-  if (exact[clean]) return exact[clean];
+  if (clean.length === 4 && exact[clean]) {
+    return exact[clean];
+  }
 
-  if (score.A >= 2 && score.C >= 1) return "AI_ARCHITECT";
-  if (score.A >= 2 && score.D >= 1) return "FUTURE_PREDICTOR";
-  if (score.C >= 2 && score.D >= 1) return "PRODUCT_MASTER";
-  if (score.C >= 3) return "WORLD_ARCHITECT";
-  if (score.B >= 3) return "INFRA_GUARDIAN";
-  if (score.D >= 3) return "DIGITAL_STRATEGIST";
+  const scores = {
+    AI_ARCHITECT: 0,
+    DATA_HUNTER: 0,
+    PRODUCT_BUILDER: 0,
+    SYSTEM_ARCHITECT: 0,
+    DIGITAL_STRATEGIST: 0,
+    RESEARCHER: 0,
+    WORLD_ARCHITECT: 0,
+    INFRA_GUARDIAN: 0,
+    FUTURE_PREDICTOR: 0,
+    PRODUCT_MASTER: 0,
+  };
 
-  const max = Math.max(score.A, score.B, score.C, score.D);
-  if (score.A === max) return "DATA_HUNTER";
-  if (score.B === max) return "SYSTEM_ARCHITECT";
-  if (score.C === max) return "PRODUCT_BUILDER";
-  if (score.D === max) return "DIGITAL_STRATEGIST";
-  return "RESEARCHER";
+  const add = (hero, value) => {
+    scores[hero] += value;
+  };
+
+  const [p1, p2, p3, p4] = clean.split("");
+
+  // 1. Суперсила
+  if (p1 === "A") {
+    add("FUTURE_PREDICTOR", 3);
+    add("DATA_HUNTER", 2);
+    add("RESEARCHER", 1);
+  }
+
+  if (p1 === "B") {
+    add("INFRA_GUARDIAN", 3);
+    add("SYSTEM_ARCHITECT", 2);
+  }
+
+  if (p1 === "C") {
+    add("PRODUCT_BUILDER", 3);
+    add("WORLD_ARCHITECT", 2);
+    add("AI_ARCHITECT", 1);
+  }
+
+  if (p1 === "D") {
+    add("DIGITAL_STRATEGIST", 3);
+    add("PRODUCT_MASTER", 2);
+  }
+
+  // 2. Область знаний
+  if (p2 === "A") {
+    add("RESEARCHER", 3);
+    add("DATA_HUNTER", 2);
+    add("FUTURE_PREDICTOR", 1);
+  }
+
+  if (p2 === "B") {
+    add("AI_ARCHITECT", 3);
+    add("PRODUCT_BUILDER", 2);
+    add("SYSTEM_ARCHITECT", 1);
+  }
+
+  if (p2 === "C") {
+    add("SYSTEM_ARCHITECT", 2);
+    add("INFRA_GUARDIAN", 2);
+    add("WORLD_ARCHITECT", 1);
+    add("AI_ARCHITECT", 1);
+  }
+
+  if (p2 === "D") {
+    add("DIGITAL_STRATEGIST", 3);
+    add("PRODUCT_MASTER", 3);
+  }
+
+  // 3. Новая технология
+  if (p3 === "A") {
+    add("DATA_HUNTER", 3);
+    add("RESEARCHER", 2);
+    add("FUTURE_PREDICTOR", 2);
+  }
+
+  if (p3 === "B") {
+    add("SYSTEM_ARCHITECT", 3);
+    add("INFRA_GUARDIAN", 3);
+  }
+
+  if (p3 === "C") {
+    add("PRODUCT_BUILDER", 3);
+    add("WORLD_ARCHITECT", 2);
+    add("AI_ARCHITECT", 2);
+  }
+
+  if (p3 === "D") {
+    add("DIGITAL_STRATEGIST", 3);
+    add("PRODUCT_MASTER", 3);
+  }
+
+  // 4. Город будущего
+  if (p4 === "A") {
+    add("FUTURE_PREDICTOR", 4);
+    add("DATA_HUNTER", 2);
+  }
+
+  if (p4 === "B") {
+    add("INFRA_GUARDIAN", 4);
+    add("SYSTEM_ARCHITECT", 2);
+  }
+
+  if (p4 === "C") {
+    add("AI_ARCHITECT", 3);
+    add("WORLD_ARCHITECT", 3);
+    add("PRODUCT_BUILDER", 2);
+  }
+
+  if (p4 === "D") {
+    add("PRODUCT_MASTER", 4);
+    add("DIGITAL_STRATEGIST", 2);
+  }
+
+  const tieBreaker = [
+    "AI_ARCHITECT",
+    "FUTURE_PREDICTOR",
+    "DATA_HUNTER",
+    "INFRA_GUARDIAN",
+    "SYSTEM_ARCHITECT",
+    "PRODUCT_BUILDER",
+    "WORLD_ARCHITECT",
+    "PRODUCT_MASTER",
+    "DIGITAL_STRATEGIST",
+    "RESEARCHER",
+  ];
+
+  return tieBreaker.sort((a, b) => scores[b] - scores[a])[0];
 }
+
 
 function useRoute() {
   const [path, setPath] = useState(window.location.pathname);
