@@ -6,7 +6,7 @@ const heroes = {
   AI_ARCHITECT: {
     emoji: "🤖",
     title: "Архитектор ИИ",
-    image: "/heroes/ai-architect.jpg",
+    image: "/heroes/ai-architect.png",
     subtitle: "Ты создаёшь интеллект будущего и учишь машины понимать мир.",
     description: "Твой путь — искусственный интеллект, машинное обучение, компьютерное зрение, NLP и исследовательская разработка.",
     professions: ["AI Engineer", "ML Engineer", "AI Researcher", "NLP Engineer", "Computer Vision Engineer"],
@@ -18,7 +18,7 @@ const heroes = {
   DATA_HUNTER: {
     emoji: "📊",
     title: "Охотник за данными",
-    image: "/heroes/data-hunter.jpg",
+    image: "/heroes/data-hunter.png",
     subtitle: "Ты находишь закономерности там, где другие видят только цифры.",
     description: "Твой путь — данные, аналитика, прогнозы, BI-системы и модели, которые помогают принимать решения.",
     professions: ["Data Scientist", "Data Analyst", "BI Analyst", "Product Analyst", "Quant Analyst"],
@@ -30,7 +30,7 @@ const heroes = {
   PRODUCT_BUILDER: {
     emoji: "🚀",
     title: "Создатель продуктов",
-    image: "/heroes/product-builder.jpg",
+    image: "/heroes/product-builder.png",
     subtitle: "Ты превращаешь идеи в цифровые продукты, которыми пользуются миллионы.",
     description: "Твой путь — разработка, продуктовая инженерия, мобильные приложения, веб-сервисы и платформы.",
     professions: ["Backend Developer", "Frontend Developer", "Fullstack Developer", "Mobile Developer", "Software Engineer"],
@@ -42,7 +42,7 @@ const heroes = {
   SYSTEM_ARCHITECT: {
     emoji: "🛡",
     title: "Архитектор систем",
-    image: "/heroes/system-architect.jpg",
+    image: "/heroes/system-architect.png",
     subtitle: "Ты проектируешь надёжные системы, которые работают без сбоев.",
     description: "Твой путь — инфраструктура, системная архитектура, DevOps, SRE и кибербезопасность.",
     professions: ["DevOps Engineer", "System Architect", "SRE Engineer", "Infrastructure Engineer", "Cybersecurity Specialist"],
@@ -54,7 +54,7 @@ const heroes = {
   DIGITAL_STRATEGIST: {
     emoji: "👑",
     title: "Цифровой стратег",
-    image: "/heroes/digital-strategist.jpg",
+    image: "/heroes/digital-strategist.png",
     subtitle: "Ты соединяешь технологии, людей и бизнес, создавая сильные цифровые продукты.",
     description: "Твой путь — управление IT-продуктами, бизнес-анализ, проектное управление и цифровая трансформация.",
     professions: ["Product Manager", "Business Analyst", "Project Manager", "Digital Consultant", "IT Consultant"],
@@ -66,7 +66,7 @@ const heroes = {
   RESEARCHER: {
     emoji: "🧠",
     title: "Исследователь",
-    image: "/heroes/researcher.jpg",
+    image: "/heroes/researcher.png",
     subtitle: "Ты любишь доказывать, открывать и находить новые законы и модели.",
     description: "Твой путь — математика, алгоритмы, моделирование, исследования и научные задачи, на которых держатся технологии.",
     professions: ["Исследователь", "Научный сотрудник", "Математик-моделист", "Разработчик алгоритмов", "Research Scientist"],
@@ -78,7 +78,7 @@ const heroes = {
   WORLD_ARCHITECT: {
     emoji: "🎮",
     title: "Архитектор цифровых миров",
-    image: "/heroes/world-architect.jpg",
+    image: "/heroes/world-architect.png",
     subtitle: "Ты создаёшь виртуальные миры, игры и интерактивные платформы.",
     description: "Твой путь — game development, AR/VR, 3D, интерфейсы, игровые механики и цифровые среды.",
     professions: ["Game Developer", "Unity Developer", "AR/VR Developer", "3D Developer", "Technical Artist"],
@@ -90,7 +90,7 @@ const heroes = {
   INFRA_GUARDIAN: {
     emoji: "⚡",
     title: "Хранитель инфраструктуры",
-    image: "/heroes/infra-guardian.jpg",
+    image: "/heroes/infra-guardian.png",
     subtitle: "Ты обеспечиваешь работу сервисов и защиту данных миллионов пользователей.",
     description: "Твой путь — серверы, облака, сети, базы данных, автоматизация и стабильность больших систем.",
     professions: ["System Administrator", "DevOps Engineer", "Cloud Engineer", "Network Engineer", "Database Administrator"],
@@ -102,7 +102,7 @@ const heroes = {
   FUTURE_PREDICTOR: {
     emoji: "🔮",
     title: "Предсказатель будущего",
-    image: "/heroes/future-predictor.jpg",
+    image: "/heroes/future-predictor.png",
     subtitle: "Ты строишь модели и прогнозы, которые помогают принимать важные решения.",
     description: "Твой путь — прогнозирование, риск-анализ, ML-модели, статистика и прикладная математика.",
     professions: ["Data Scientist", "ML Engineer", "Quant Analyst", "Forecasting Analyst", "Risk Analyst"],
@@ -114,7 +114,7 @@ const heroes = {
   PRODUCT_MASTER: {
     emoji: "💼",
     title: "Повелитель продуктов",
-    image: "/heroes/product-master.jpg",
+    image: "/heroes/product-master.png",
     subtitle: "Ты управляешь продуктами и командами, делая мир удобнее и лучше.",
     description: "Твой путь — продуктовая стратегия, управление командами, гипотезы, метрики, запуск и развитие цифровых сервисов.",
     professions: ["Product Manager", "Product Owner", "Project Manager", "Scrum Master", "Delivery Manager"],
