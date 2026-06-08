@@ -130,44 +130,61 @@ function pickHero(code) {
 
   if (clean.length === 0) return null;
 
-  // Специальные коды для презентации.
-  // Они позволяют заранее проверить и красиво показать конкретные примеры.
-  const exact = {
-    AAAA: "FUTURE_PREDICTOR",
-    AAAB: "DATA_HUNTER",
+  // ВЕРСИЯ ЛОГИКИ: code-map-v4
+  // Главная таблица соответствий. Коды из этой таблицы ВСЕГДА имеют приоритет.
+  const codeToHero = {
+    // 🤖 Архитектор ИИ
+    AABA: "AI_ARCHITECT",
+    ACAA: "AI_ARCHITECT",
     AAAC: "AI_ARCHITECT",
-    AAAD: "DIGITAL_STRATEGIST",
 
-    AABB: "INFRA_GUARDIAN",
-    ABAB: "SYSTEM_ARCHITECT",
-    ABBA: "SYSTEM_ARCHITECT",
+    // 📊 Охотник за данными
+    AABB: "DATA_HUNTER",
+    ABAB: "DATA_HUNTER",
+    ABBA: "DATA_HUNTER",
 
-    AACA: "AI_ARCHITECT",
-    ABCA: "AI_ARCHITECT",
+    // 🔮 Предсказатель будущего
+    AAAA: "FUTURE_PREDICTOR",
+    AACD: "FUTURE_PREDICTOR",
 
-    BBBB: "INFRA_GUARDIAN",
-    BBBA: "SYSTEM_ARCHITECT",
+    // 🛡 Архитектор систем
     BBBC: "SYSTEM_ARCHITECT",
+    BBBB: "SYSTEM_ARCHITECT",
+
+    // ⚡ Хранитель инфраструктуры
     BBBD: "INFRA_GUARDIAN",
+    BBCC: "INFRA_GUARDIAN",
 
-    CCCC: "WORLD_ARCHITECT",
-    CCCA: "PRODUCT_BUILDER",
+    // 🚀 Создатель продуктов
+    CCAC: "PRODUCT_BUILDER",
+    CCAD: "PRODUCT_BUILDER",
+    CCCC: "PRODUCT_BUILDER",
+
+    // 🎮 Архитектор цифровых миров
+    CCDC: "WORLD_ARCHITECT",
     CCCB: "WORLD_ARCHITECT",
-    CCCD: "PRODUCT_BUILDER",
 
-    CCAD: "PRODUCT_MASTER",
-
+    // 👑 Цифровой стратег
     DDDD: "DIGITAL_STRATEGIST",
-    DDDA: "DIGITAL_STRATEGIST",
+    DDAD: "DIGITAL_STRATEGIST",
 
+    // 💼 Повелитель продуктов
     DDCD: "PRODUCT_MASTER",
-    DCCD: "PRODUCT_MASTER",
+    DDCC: "PRODUCT_MASTER",
+
+    // 🧠 Исследователь
+    ABCA: "RESEARCHER",
+    ACAD: "RESEARCHER",
   };
 
-  if (clean.length === 4 && exact[clean]) {
-    return exact[clean];
+  const exactHero = codeToHero[clean];
+
+  if (clean.length === 4 && exactHero) {
+    return exactHero;
   }
 
+  // Fallback для любых других комбинаций.
+  // Он срабатывает ТОЛЬКО если кода нет в codeToHero.
   const scores = {
     AI_ARCHITECT: 0,
     DATA_HUNTER: 0,
