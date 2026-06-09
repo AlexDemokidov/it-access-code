@@ -61,7 +61,6 @@ h1 {
   margin: 18px 0;
   font-size: clamp(58px, 8vw, 112px);
   line-height: 1.1;
-  letter-spacing: -0.07em;
 }
 
 .subtitle {
